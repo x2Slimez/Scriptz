@@ -2767,9 +2767,9 @@ if getgenv().AutoLoadTP == true then
     local exec = tostring(identifyexecutor())
 
     if exec == "Synapse X" then
-        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/ArponAG/Scripts/main/AnimeAdventures.lua'))()")
+        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
     else
-        queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/ArponAG/Scripts/main/AnimeAdventures.lua'))()")
+        queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
     end
 
 end
