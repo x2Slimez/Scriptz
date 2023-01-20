@@ -594,13 +594,13 @@ devilcity:Label("นอกจากนี้ หากคุณมีประ�
 		autoloadtab:Label("สิ่งนี้จะช่วยคุณรันสคริปต์โดยอัตโนมัติ")
         autoloadtab:Label("คุณไม่จำเป็นต้องใส่สคริปต์ในโฟลเดอร์ AutoExec!")
         autoloadtab:Toggle("ออโต้รันสคริปต์", getgenv().AutoLoadTP, function(bool)
-            --queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
+            --queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
             getgenv().AutoLoadTP = bool
             updatejson()
             if exec == "Synapse X" and getgenv().AutoLoadTP then
-                syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
+                syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
             elseif exec ~= "Synapse X" and getgenv().AutoLoadTP then
-                queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
+                queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
             end
 
         end)
@@ -756,9 +756,9 @@ devilcity:Label("นอกจากนี้ หากคุณมีประ�
             getgenv().AutoLoadTP = bool
             updatejson()
             if exec == "Synapse X" and getgenv().AutoLoadTP then
-                syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
+                syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
             elseif exec ~= "Synapse X" and getgenv().AutoLoadTP then
-                queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
+                queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
             end
 
         end)
@@ -2923,9 +2923,9 @@ if getgenv().AutoLoadTP == true then
     local exec = tostring(identifyexecutor())
 
     if exec == "Synapse X" then
-        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
+        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
     else
-        queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
+        queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
     end
 
 end
