@@ -1058,8 +1058,6 @@ end)
     end
 --#endregion
 local diskord = diskordserver:Channel("👾 ดิสคอร์ด")
-gettrigon:Label("❗ เข้ามาพูดคุยกันได้ที่ Discord NekoHub")
-gettrigon:Label("❗ คลิกปุ่มด้านล่างเพื่อคัดลอก Discord ของ NekoHub")
 diskord:Button("👉 คัดลอกลิงก์ Discord อย่างเป็นทางการ!", function()
     setclipboard("https://discord.gg/gBrJpjdTVh")
     DiscordLib:Notification("")
