@@ -1,4 +1,4 @@
-local versionx = "1.0.1"
+local versionx = "1.0.2"
 
 ---// Loading Section \\---
 task.wait(2)
@@ -19,7 +19,7 @@ local RunService = game:GetService("RunService")
 local mouse = game.Players.LocalPlayer:GetMouse()
 local UserInputService = game:GetService("UserInputService")
 
-getgenv().savefilename = "Anime-Adventures_UPD8"..game.Players.LocalPlayer.Name..".json"
+getgenv().savefilename = "Anime-Adventures_UPD9t"..game.Players.LocalPlayer.Name..".json"
 getgenv().door = "_lobbytemplategreen1"
 
 --#region Webhook Sender
@@ -118,6 +118,14 @@ function sex()
     local data = HttpService:JSONDecode(jsonData)
 
 --#region global values
+
+    --DEVIL CITY
+    getgenv().portalnameX = data.portalnameX
+    getgenv().farmprotal = data.farmportal
+    getgenv().buyportal = data.buyportal
+    getgenv().PortalID = data.PortalID
+
+
     getgenv().AutoLeave = data.AutoLeave
     getgenv().AutoReplay = data.AutoReplay
     getgenv().AutoChallenge = data.AutoChallenge  
@@ -148,6 +156,12 @@ function sex()
     function updatejson()
 
         local xdata = {
+            --Devil City
+            portalnameX = getgenv().portalnameX,
+            farmportal = getgenv().farmprotal,
+            buyportal = getgenv().buyportal,
+            PortalID = getgenv().PortalID,
+
             -- unitname = getgenv().unitname,
             -- unitid = getgenv().unitid,
             autoloadtp = getgenv().AutoLoadTP,
@@ -187,35 +201,33 @@ function sex()
     local exec = tostring(identifyexecutor())
 
     local DiscordLib = loadstring(game:HttpGet "https://raw.githubusercontent.com/Forever4D/Lib/main/DiscordLib2.lua")()
-    local win = DiscordLib:Window("[✨UPD 8] Anime Adventures "..versionx.." - "..exec)
+    local win = DiscordLib:Window("[👹UPD 9] Anime Adventures "..versionx.." - "..exec)
        
     if exec == "Synapse X" or exec == "ScriptWare" or exec == "Trigon" then
         print("Good boi")
     else
-        local gettrigonserver = win:Server("Get Discord Neko Hub", "http://www.roblox.com/asset/?id=7628278821")
-        local gettrigon = gettrigonserver:Channel("🐱 Discord Neko Hub")
-        gettrigon:Label("❗ เข้ามาพูดคุยกันได้ที่ Discord Neko Hub")
-        gettrigon:Label("❗ คลิกปุ่มด้านล่างเพื่อคัดลอกเซิร์ฟเวอร์ Discord ของ Neko Hub")
-        gettrigon:Button("👉 คัดลอกลิงก์ Discord ของ Neko Hub", function()
-            setclipboard("https://discord.gg/gBrJpjdTVh")
-            DiscordLib:Notification("คัดลอกสำเร็จแล้ว✅", "✅ คัดลอกลิงก์เชิญ Discord ของ Neko Hub ไปยังคลิปบอร์ดของคุณแล้ว", "เสร็จสิ้น✅")
+        local gettrigonserver = win:Server("Get Trigon Evo!", "http://www.roblox.com/asset/?id=7628278821")
+        local gettrigon = gettrigonserver:Channel("📐 Get Trigon Evo!")
+        gettrigon:Label("⚠️ It looks like you're using "..exec..".💀⚠️")
+        gettrigon:Label("❗ You maybe wanna try out Trigon Evo, It could be better\nthen "..exec..". 🤮")
+        gettrigon:Label("❗ Click the button below to copy Trigon Evo's Discord server!!")
+        gettrigon:Button("👉 Copy Trigon Discord Link!", function()
+            setclipboard("https://discord.gg/rnZXbd2yfW")
+            DiscordLib:Notification("Copied!!", "✔ Trigon Evo's Discord Invite Link Has Been Copied To Your Clipboard!!", "Okay!")
         end)
     end
 
     local autofrmserver = win:Server("หมวดหมู่ออโต้ฟาร์ม", "http://www.roblox.com/asset/?id=11579310982")
     local webhookserver = win:Server("การแจ้งเตือน  ", "http://www.roblox.com/asset/?id=11585480207")
-    local cngelogserver = win:Server("บันทึกการอัพเดท        ", "http://www.roblox.com/asset/?id=11579189531")
+    local diskordserver = win:Server("ดิสคอร์ด   ", "http://www.roblox.com/asset/?id=12155612675")
     local creditsserver = win:Server("เครดิต          ", "http://www.roblox.com/asset/?id=11579371312")
-
-
-
-
 
 
     if game.PlaceId == 8304191830 then
 
         local unitselecttab = autofrmserver:Channel("👷 เลือกตัวละคร")
         local slectworld = autofrmserver:Channel("🌎 เลือกโลก")
+        local devilcity = autofrmserver:Channel("👿 เมืองปีศาจ")
         local autofarmtab = autofrmserver:Channel("🤖 ออโต้ฟาร์ม")
         local autoclngtab = autofrmserver:Channel("🎯 ออโต้ชาเลนจ์")
     
@@ -270,7 +282,7 @@ function sex()
             updatejson()
         end
 
-        unitselecttab:Button("เลือกตัวละครที่จะติดตั้ง", function()
+        unitselecttab:Button("Select Equipped Units", function()
             for i, v in ipairs(game:GetService("Players").LocalPlayer.PlayerGui["spawn_units"].Lives.Frame.Units:GetChildren()) do
                 if v:IsA("ImageButton") then
                     local unitxx = v.Main.petimage.WorldModel:GetChildren()[1]
@@ -281,7 +293,7 @@ function sex()
                     end
                 end
             end
-            DiscordLib:Notification("เลือกตัวละครที่จะติดตั้งแล้ว!", "ที่หน้ารายการตัวละครอาจจะยังไม่แสดงตัวละครในขณะนี้ แต่จะแสดงในครั้งต่อไปที่คุณดำเนินการ!", "เสร็จสิ้น✅")
+            DiscordLib:Notification("เลือกตัวละครที่จะติดตั้ง", "The dropdowns may not show the unit names now, but it will show next time you execute!", "Okay!")
 
         end)
 
@@ -321,7 +333,7 @@ function sex()
             end)
         end
 --------------// Refresh Unit List \\------------- 
-        unitselecttab:Button("Refresh Unit List", function()
+        unitselecttab:Button("รีเซ็ตตัวละคร", function()
             drop:Clear()
             drop2:Clear()
             drop3:Clear()
@@ -359,6 +371,7 @@ function sex()
         unitselecttab:Label(" ")
         unitselecttab:Label(" ")
 --#endregion
+
 --------------------------------------------------
 --------------- Select World Tab -----------------
 --------------------------------------------------
@@ -495,6 +508,33 @@ function sex()
             
         end)
 --#endregion
+
+
+
+getgenv().portalname = devilcity:Dropdown("เลือกประตู", {"csm_contract_0", "csm_contract_1","csm_contract_2","csm_contract_3","csm_contract_4","csm_contract_5"}, getgenv().portalnameX, function(pornname)
+    getgenv().portalnameX = pornname
+    updatejson()
+end)
+
+devilcity:Button("ซื้อประตู", function()
+
+    if getgenv().buyportal then
+        local args = {
+            [1] = tostring(getgenv().portalnameX)
+        }
+        game:GetService("ReplicatedStorage").endpoints.client_to_server.buy_csmportal_shop_item:InvokeServer(unpack(args))
+    end
+
+end)
+
+devilcity:Toggle("ออโต้ฟาร์มประตู", getgenv().farmprotal, function(bool)
+    getgenv().farmprotal = bool
+    updatejson()
+end)
+
+devilcity:Label("เล่นได้เฉพาะประตูที่ปลดล็อคเท่านั้น")
+devilcity:Label("นอกจากนี้ หากคุณมีประตูระดับต่ำ มันอาจจะเริ่มทำงาน ดังนั้นอย่าซื้อประตูระดับต่ำที่คุณไม่ต้องการฟาร์ม")
+
 --------------------------------------------------
 ------------------ Auto Farm Tab -----------------
 --------------------------------------------------
@@ -517,7 +557,7 @@ function sex()
             updatejson()
         end)
 
-        autofarmtab:Toggle("ออโต้ฟาร์ม", getgenv().AutoFarm, function(bool)
+        autofarmtab:Toggle("ออโต้เล่นเอง", getgenv().AutoFarm, function(bool)
             getgenv().AutoFarm = bool
             updatejson()
         end)
@@ -525,52 +565,6 @@ function sex()
         autofarmtab:Toggle("ออโต้เริ่มด่าน", getgenv().autostart, function(bool)
             getgenv().autostart = bool
             updatejson()
-
-            --[[if getgenv().autostart and getgenv().AutoFarm then
-
-                for i, v in pairs(game:GetService("Workspace")["_LOBBIES"].Story:GetDescendants()) do
-                    if v.Name == "Owner" and v.Value == nil then
-                        getgenv().door = v.Parent.Name
-                        break
-                    end
-                end
-
-                task.wait()
-
-                local args = {
-                    [1] = getgenv().door
-                }
-                game:GetService("ReplicatedStorage").endpoints.client_to_server.request_join_lobby:InvokeServer(unpack(args))
-
-                task.wait()
-
-                if getgenv().level:match("infinite") then
-                    local args = {
-                        [1] = getgenv().door, -- Lobby 
-                        [2] = getgenv().level, -- World
-                        [3] = true, -- Friends Only or not
-                        [4] = "Hard"
-                    }
-                    game:GetService("ReplicatedStorage").endpoints.client_to_server.request_lock_level:InvokeServer(unpack(args))
-                else
-                    local args = {
-                        [1] = getgenv().door, -- Lobby 
-                        [2] = getgenv().level, -- World
-                        [3] = true, -- Friends Only or not
-                        [4] = getgenv().difficulty
-                    }
-                    game:GetService("ReplicatedStorage").endpoints.client_to_server.request_lock_level:InvokeServer(unpack(args))
-                end
-
-
-                task.wait()
-
-                local args = {
-                    [1] = getgenv().door
-                }
-                game:GetService("ReplicatedStorage").endpoints.client_to_server.request_start_game:InvokeServer(unpack(args))
-            end ]]
-
         end)
 
         autofarmtab:Toggle("ออโต้กดสกิล", getgenv().autoabilities, function(bool)
@@ -592,7 +586,7 @@ function sex()
         end)
 
         ---- 
-        autofarmtab:Textbox("เลือกเวฟสำหรับการขายตัวละครออโต้ {กดปุ่มEnter}", tostring(getgenv().sellatwave), false, function(t)
+        autofarmtab:Textbox("เลือกเวฟสำหรับการขายตัวละครออโต้ {กดปุ่ม Enter}", tostring(getgenv().sellatwave), false, function(t)
             getgenv().sellatwave = tonumber(t)
             updatejson()
         end)
@@ -611,7 +605,7 @@ function sex()
             end
 
         end)
-        autoloadtab:Label("⚠️ หากไม่ทำงานให้วางสคริปต์ในโฟลเดอร์ Autoexec!!! ⚠️")
+        autoloadtab:Label("⚠️ หากไม่ทำงานให้วางสคริปต์ในโฟลเดอร์ Autoexec\nfolder!!! ⚠️")
 
         
 
@@ -751,6 +745,7 @@ function sex()
 
 
     local autofarmtab = autofrmserver:Channel("🤖 ออโต้ฟาร์ม")
+    local devilcity = autofrmserver:Channel("👿 เมืองปีศาจ")
     local autoclngtab = autofrmserver:Channel("🎯 ออโต้ชาเลนจ์")
     local autoloadtab = autofrmserver:Channel("⌛ ออโต้รันสคริปต์")
     local autoseltab = autofrmserver:Channel("💸 ออโต้ขาย")
@@ -768,8 +763,38 @@ function sex()
             end
 
         end)
-        autoloadtab:Label("⚠️ หากไม่ทำงานให้วางสคริปต์ในโฟลเดอร์ Autoexec!!! ⚠️")
+        autoloadtab:Label("⚠️ หากไม่ทำงานให้วางสคริปต์ในโฟลเดอร์ Autoexec\nfolder!!! ⚠️")
 
+
+
+
+
+
+
+    getgenv().portalname = devilcity:Dropdown("เลือกประตู", {"csm_contract_0", "csm_contract_1","csm_contract_2","csm_contract_3","csm_contract_4","csm_contract_5"}, getgenv().portalnameX, function(pornname)
+        getgenv().portalnameX = pornname
+        updatejson()
+    end)
+    
+    devilcity:Button("ซื้อประตู", function()
+        if getgenv().buyportal then
+            local args = {
+                [1] = tostring(getgenv().portalnameX)
+            }
+            
+            game:GetService("ReplicatedStorage").endpoints.client_to_server.buy_csmportal_shop_item:InvokeServer(unpack(args))
+        end
+    end)
+    
+    devilcity:Toggle("ออโต้ฟาร์มประตู", getgenv().farmprotal, function(bool)
+        getgenv().farmprotal = bool
+        updatejson()
+    end)
+    
+    devilcity:Label("เล่นได้เฉพาะประตูที่ปลดล็อคเท่านั้น")
+devilcity:Label("นอกจากนี้ หากคุณมีประตูระดับต่ำ มันอาจจะเริ่มทำงาน ดังนั้นอย่าซื้อประตูระดับต่ำที่คุณไม่ต้องการฟาร์ม")
+
+        
 --#region Auto Farm Tab
         autofarmtab:Toggle("ออโต้เล่นด่านซ้ำ", getgenv().AutoReplay, function(bool)
             getgenv().AutoReplay = bool
@@ -789,7 +814,7 @@ function sex()
             updatejson()
         end)
 
-        autofarmtab:Toggle("ออโต้ฟาร์ม", getgenv().AutoFarm, function(bool)
+        autofarmtab:Toggle("ออโต้เล่นเอง", getgenv().AutoFarm, function(bool)
             getgenv().AutoFarm = bool
             updatejson()
         end)
@@ -900,6 +925,11 @@ function sex()
                             SpawnUnitPos["jojo"][UnitPos]["x"] = a.Position.X
                             SpawnUnitPos["jojo"][UnitPos]["y"] = a.Position.Y
                             SpawnUnitPos["jojo"][UnitPos]["z"] = a.Position.Z
+                        elseif game.Workspace._map:FindFirstChild("vending machines") then
+                            print("chainsaw")    
+                            SpawnUnitPos["chainsaw"][UnitPos]["x"] = a.Position.X
+                            SpawnUnitPos["chainsaw"][UnitPos]["y"] = a.Position.Y
+                            SpawnUnitPos["chainsaw"][UnitPos]["z"] = a.Position.Z
                         end
 
                         updatejson()
@@ -1028,18 +1058,21 @@ end)
 
     end
 --#endregion
-
---#region changelog
-    local changelog = cngelogserver:Channel("💬 บันทึกการอัพเดท")
-    changelog:Label("-- 1.0.1 --")
-    changelog:Label("+ เพิ่มระบบออโต้ฟาร์มอีเว้นท์")
-    changelog:Label("-- 1.0.0 --")
-    changelog:Label("+ เพิ่มระบบภาษาไทย")
+local diskord = diskordserver:Channel("👾 ดิสคอร์ด")
+diskord:Button("👉 คัดลอกลิงก์ Discord อย่างเป็นทางการ!", function()
+    setclipboard("https://discord.gg/gBrJpjdTVh")
+    DiscordLib:Notification("")
+end)
+--#region Credits
+local credits = creditsserver:Channel("✨ เครดิต")
+credits:Label("x2Skyz#4852")
+credits:Button("👉 คัดลอกลิงก์ Discord อย่างเป็นทางการ!", function()
+    setclipboard("https://discord.gg/gBrJpjdTVh")
+    DiscordLib:Notification("คัดลอกสำเร็จแล้ว✅", "✅ คัดลอกลิงก์เชิญ Discord ของ Neko Hub ไปยังคลิปบอร์ดของคุณแล้ว", "เสร็จสิ้น✅")
+end)
 --#endregion
 
-    local credits = creditsserver:Channel("✨ เครดิต")
-    credits:Label("x2Skyz#4852")
-    credits:Label(" ")
+
 end
 
 --------------------------------------------------
@@ -1056,6 +1089,12 @@ if isfile(savefilename) then
 else
 --#region CREATES JSON
     local xdata = {
+        --Devil City
+        portalnameX = "csm_contract_0",
+        farmportal = false,
+        buyportal = false,
+        PortalID = "nil",
+        
         -- unitname = "name",
         -- unitid = "id",
         AutoReplay = false,
@@ -1071,7 +1110,7 @@ else
         autofarm = false,
         autofarmic = false,
         autostart = false,
-        autoloadtp = true,
+        autoloadtp = false,
         autoupgrade = false,
         difficulty = "nil",
         world = "nil",
@@ -1496,6 +1535,39 @@ else
                 z  = -636.2127075195313
              }
            },
+           chainsaw  = {
+            UP1  = {
+                x = -332.51287841796875, 
+                y = 1.0000009536743164,
+                z = -554.8867797851562
+                
+           },
+            UP3  = {
+                x = -326.1617126464844,
+                y = 1.0000009536743164,
+                z = -554.5086669921875
+           },
+            UP2  = {
+                x = -317.24713134765625,
+                y = 1.0000007152557373,
+                z = -553.8807983398438
+           },
+            UP6  = {
+                x = -327.2223815917969,
+                y = 1.0000004768371582,
+                z = -550.3519287109375
+           },
+            UP5  = {
+                x = -342.5332946777344,
+                y = 1.0000004768371582,
+                z = -551.2924194335938
+           },
+            UP4  = {
+                x = -320.3905944824219,
+                y = 1.0000004768371582,
+                z = -550.587890625
+           }
+         },
            jojo = {
             UP1  = {
                 x = -111.61297607421875, 
@@ -1560,8 +1632,10 @@ end
 coroutine.resume(coroutine.create(function()
     while task.wait(1.5) do
         local _wave = game:GetService("Workspace"):WaitForChild("_wave_num")
-        
+        repeat task.wait() until game:GetService("Workspace"):WaitForChild("_map")
+
         if getgenv().AutoFarm and not getgenv().disableatuofarm then
+            print('farming')
             if game.PlaceId ~= 8304191830 then
                 x = 1
                 y = 0.7
@@ -2230,6 +2304,57 @@ coroutine.resume(coroutine.create(function()
                             game:GetService("ReplicatedStorage").endpoints.client_to_server.spawn_unit:InvokeServer(unpack(args))
                         end
                     end
+                elseif game.Workspace._map:FindFirstChild("vending machines") then
+                    print("chainsaw")
+                    for i = 1, 6 do
+                        local unitinfo = getgenv().SelectedUnits["U" .. i]
+                        if unitinfo ~= nil then
+                            local unitinfo_ = unitinfo:split(" #")
+                            local pos = getgenv().SpawnUnitPos["chainsaw"]["UP" .. i]
+    
+                            --place units 0
+                            local args = {
+                                [1] = unitinfo_[2],
+                                [2] = CFrame.new(Vector3.new(pos["x"], pos["y"] - y, pos["z"]), Vector3.new(0, 0, -1))
+                            }
+                            game:GetService("ReplicatedStorage").endpoints.client_to_server.spawn_unit:InvokeServer(unpack(args))
+    
+                            --place units 1
+                            local args = {
+                                [1] = unitinfo_[2],
+                                [2] = CFrame.new(Vector3.new(pos["x"] - x, pos["y"] - y, pos["z"]), Vector3.new(0, 0, -1))
+                            }
+                            game:GetService("ReplicatedStorage").endpoints.client_to_server.spawn_unit:InvokeServer(unpack(args))
+    
+                            --place units 2 
+                            local args = {
+                                [1] = unitinfo_[2],
+                                [2] = CFrame.new(Vector3.new(pos["x"], pos["y"] - y, pos["z"] + z), Vector3.new(0, 0, -1))
+                            }
+                            game:GetService("ReplicatedStorage").endpoints.client_to_server.spawn_unit:InvokeServer(unpack(args))
+    
+                            --place units 3 
+                            local args = {
+                                [1] = unitinfo_[2],
+                                [2] = CFrame.new(Vector3.new(pos["x"] - x, pos["y"] - y, pos["z"] + z), Vector3.new(0, 0, -1))
+                            }
+                            game:GetService("ReplicatedStorage").endpoints.client_to_server.spawn_unit:InvokeServer(unpack(args))
+    
+                            --place units 4
+                            local args = {
+                                [1] = unitinfo_[2],
+                                [2] = CFrame.new(Vector3.new(pos["x"]+ x, pos["y"] - y, pos["z"] + z), Vector3.new(0, 0, -1))
+                            }
+                            game:GetService("ReplicatedStorage").endpoints.client_to_server.spawn_unit:InvokeServer(unpack(args))
+    
+                            --place units 5
+                            local args = {
+                                [1] = unitinfo_[2],
+                                [2] = CFrame.new(Vector3.new(pos["x"] + x, pos["y"] - y, pos["z"]), Vector3.new(0, 0, -1))
+                            }
+                            game:GetService("ReplicatedStorage").endpoints.client_to_server.spawn_unit:InvokeServer(unpack(args))
+                        end
+                    end
                 elseif game.Workspace._map:FindFirstChild("SpaceCenter") then
                     print("Cape Canaveral")
                     for i = 1, 6 do
@@ -2575,9 +2700,11 @@ local function checkReward()
     end
 end
 
+
 local function startfarming()
-    if getgenv().autostart and getgenv().AutoFarm and getgenv().teleporting 
+    if getgenv().farmprotal == false and getgenv().autostart and getgenv().AutoFarm and getgenv().teleporting 
                            and getgenv().AutoFarmTP == false and getgenv().AutoFarmIC == false then
+
         if game.PlaceId == 8304191830 then
             local cpos = plr.Character.HumanoidRootPart.CFrame
 
@@ -2635,21 +2762,45 @@ local function startfarming()
 
             warn("farming")
             task.wait(3)
-
-        --[[for i, v in pairs(game:GetService("Workspace")["_LOBBIES"].Story:GetDescendants()) do
-                if v.Name == "Owner" then
-                local n = tostring(v.Value)
-                    if n == game:GetService("Players").LocalPlayer.Name then
-                        if v.Parent.Teleporting.Value == true then
-                            getgenv().teleporting = false
-                        else
-                            getgenv().teleporting = true
-                        end
-                    end
-                end
-            end  ]]
-
         end
+    elseif getgenv().autostart and getgenv().AutoFarm and getgenv().teleporting 
+                           and getgenv().AutoFarmTP == false and getgenv().AutoFarmIC == false and getgenv().farmprotal or getgenv().farmprotal then
+
+        for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.items.grid.List.Outer.ItemFrames:GetChildren()) do
+            if v.Name == "portal_csm" or v.Name == "portal_csm1" or v.Name == "portal_csm2" or v.Name == "portal_csm3" or v.Name == "portal_csm4" or v.Name == "portal_csm5"  then
+                print(v._uuid_or_id.value)
+                getgenv().PortalID = v._uuid_or_id.value
+                break;
+            end
+        end
+          task.wait(1.5)
+
+          local args = {
+            [1] = tostring(getgenv().PortalID),
+            [2] = {
+                ["friends_only"] = true
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").endpoints.client_to_server.use_portal:InvokeServer(unpack(args))
+
+        task.wait(1.5)
+
+        for i,v in pairs(game:GetService("Workspace")["_PORTALS"].Lobbies:GetDescendants()) do
+            if v.Name == "Owner" then
+                if tostring(v.value) == game.Players.LocalPlayer.Name then
+                    local args = {
+                        [1] = tostring(v.Parent.Name)
+                    }
+                    
+                    game:GetService("ReplicatedStorage").endpoints.client_to_server.request_start_game:InvokeServer(unpack(args))
+                    break;
+                end
+            end 
+        end
+        
+
+        task.wait(7)
     end
 end
 
@@ -2773,9 +2924,9 @@ if getgenv().AutoLoadTP == true then
     local exec = tostring(identifyexecutor())
 
     if exec == "Synapse X" then
-        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
+        syn.queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
     else
-        queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scriptz/main/AnimeAdventures.lua'))()")
+        queue_on_teleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/x2Slimez/Scripts/main/AnimeAdventures.lua'))()")
     end
 
 end
