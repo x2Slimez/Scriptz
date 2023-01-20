@@ -206,14 +206,13 @@ function sex()
     if exec == "Synapse X" or exec == "ScriptWare" or exec == "Trigon" then
         print("Good boi")
     else
-        local gettrigonserver = win:Server("Get Trigon Evo!", "http://www.roblox.com/asset/?id=7628278821")
-        local gettrigon = gettrigonserver:Channel("📐 Get Trigon Evo!")
-        gettrigon:Label("⚠️ It looks like you're using "..exec..".💀⚠️")
-        gettrigon:Label("❗ You maybe wanna try out Trigon Evo, It could be better\nthen "..exec..". 🤮")
-        gettrigon:Label("❗ Click the button below to copy Trigon Evo's Discord server!!")
-        gettrigon:Button("👉 Copy Trigon Discord Link!", function()
-            setclipboard("https://discord.gg/rnZXbd2yfW")
-            DiscordLib:Notification("Copied!!", "✔ Trigon Evo's Discord Invite Link Has Been Copied To Your Clipboard!!", "Okay!")
+        local gettrigonserver = win:Server("Get Link Youtube", "http://www.roblox.com/asset/?id=7628278821")
+        local gettrigon = gettrigonserver:Channel("🐱 Youtube SAIKAX2")
+        gettrigon:Label("❗ เข้ามาดูคลิปกันได้ที่ Youtube SAIKAX2")
+        gettrigon:Label("❗ คลิกปุ่มด้านล่างเพื่อคัดลอก Youtube ของ SAIKAX2")
+        gettrigon:Button("👉 คัดลอกลิงก์ Discord ของ Neko Hub", function()
+            setclipboard("https://youtube.com/@SAIKAX2")
+            DiscordLib:Notification("คัดลอกสำเร็จแล้ว✅", "✅ คัดลอกลิงก์ช่อง Youtube ของ SAIKAX2 ไปยังคลิปบอร์ดของคุณแล้ว", "เสร็จสิ้น✅")
         end)
     end
 
